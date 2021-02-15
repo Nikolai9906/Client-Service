@@ -6,21 +6,21 @@ package edu.escuelaing.arep.model;
  *
  */
 public class Animal {
-	private String animal;
+	private String marca;
 	private String nombre;
-	private int edad;
+	private int numero;
 	
 	
 	/**
 	 * Construye un animal a partir de los parametros dados
-	 * @param animal Es el tipo de animal
+	 * @param marca Es el tipo de animal
 	 * @param nombre Es el nombre del animal
-	 * @param edad Es la edad del animal
+	 * @param numero Es la edad del animal
 	 */
-	public Animal (String animal, String nombre, int edad) {
-		this.setanimal(animal);
+	public Animal (String marca, String nombre, int numero) {
+		this.setanimal(marca);
 		this.setNombre(nombre);
-		this.setEdad(edad);
+		this.setNumero(numero);
 	}
 
 	
@@ -29,7 +29,7 @@ public class Animal {
 	 * @return animal 
 	 */
 	public String getanimal() {
-		return animal;
+		return marca;
 	}
 
 	/**
@@ -37,7 +37,7 @@ public class Animal {
 	 * @param animal Es el nuevo tipo
 	 */
 	public void setanimal(String animal) {
-		this.animal = animal;
+		this.marca = animal;
 	}
 
 	/**
@@ -61,22 +61,22 @@ public class Animal {
 	 * Retorna la edad del animal
 	 * @return edad
 	 */
-	public int getEdad() {
-		return edad;
+	public int getNumero() {
+		return numero;
 	}
 
 	/**
 	 * Cambia la edad del animal
-	 * @param edad Es la nueva edad
+	 * @param numero Es la nueva edad
 	 */
-	public void setEdad(int edad) {
-		this.edad = edad;
+	public void setNumero(int numero) {
+		this.numero = numero;
 	}
 	
 	/**
 	 * Retorna las caracteristicas del animal en formato JSON
 	 */
 	public String toString() {
-		return "{\"animal\": " + "\"" + animal +  "\"" + ", \"nombre\": " + "\"" + nombre +  "\"" + ", \"edad\": " + edad + "}";
+		return "{\"marca\": " + "\"" + marca +  "\"" + ", \"nombre\": " + "\"" + nombre +  "\"" + ", \"numero\": " + numero + "}";
 	}
 }

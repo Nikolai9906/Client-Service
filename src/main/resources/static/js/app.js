@@ -21,9 +21,9 @@ var app = (function () {
                         "<tbody>";
             dataTable.forEach(function(animal) {
                 tabla += "<tr>" +
-                            "<td>" + animal.animal + "</td>" +
+                            "<td>" + animal.marca + "</td>" +
                             "<td>" + animal.nombre + "</td>" +
-                            "<td>" + animal.edad + "</td>" +
+                            "<td>" + animal.numero + "</td>" +
                         "</tr>";
             });
         
@@ -32,16 +32,16 @@ var app = (function () {
     }
 
     var createAnimal = function() {
-        var animal = $("#idAnimal").val();
+        var marca = $("#idMarca").val();
         var nombre = $("#idNombre").val();
-        var edad = $("#idEdad").val();
-        console.log(edad);
-        if (animal == "" || nombre == "" || edad == "") {
+        var numero = $("#idNumero").val();
+        console.log(numero);
+        if (marca == "" || nombre == "" || numero == "") {
             alert("Todos los campos son obligatorios");
             return;
         }
 
-        var jsonAnimal = {"animal": animal, "nombre": nombre, "edad": edad};
+        var jsonAnimal = {"animal": marca, "nombre": nombre, "edad": numero};
         console.log(jsonAnimal);
         console.log(JSON.stringify(jsonAnimal));
         flag = false;
@@ -62,9 +62,9 @@ var app = (function () {
     }
 
     var refresAll = function() {
-        $("#idAnimal").val("");
+        $("#idMarca").val("");
         $("#idNombre").val("");
-        $("#idEdad").val("");
+        $("#idNumero").val("");
     }
 
 

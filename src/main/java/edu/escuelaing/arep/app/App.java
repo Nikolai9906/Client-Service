@@ -21,11 +21,11 @@ public class App
         ServicesHttp servicesHttp = new ServicesHttp();
         port(getPort());
 
-        get("/animals", (request, response) -> {
+        get("/tenis", (request, response) -> {
             return servicesHttp.getAnimals();
         });
 
-        post("/addanimal", (request, response) -> {
+        post("/addtenis", (request, response) -> {
             String body = request.getBody();
             String res = "Para poder añadir un tenis, envielo desde el formulario en la página principal";
             System.out.println("REQUEST POST ----------- \n" + body);

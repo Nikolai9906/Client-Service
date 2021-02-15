@@ -38,7 +38,7 @@ public class DataBase {
 		HashMap<String, Object> map = new HashMap<>();
 		String animal = a.getanimal();
 		String nombre = a.getNombre();
-		int edad = a.getEdad();	
+		int edad = a.getNumero();
 		map.put("animal", animal);
 		map.put("nombre", nombre);
 		map.put("edad", edad);

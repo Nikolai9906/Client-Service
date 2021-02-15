@@ -3,7 +3,7 @@ var apiclient = (function(){
     return {
         loadDataAnimals: function(callback) {
             var promise = $.get({
-        		url: "/animals"
+        		url: "/tenis"
             });
         	promise.then(function(data){
         		callback(null, JSON.parse(data));
@@ -14,7 +14,7 @@ var apiclient = (function(){
 		addAnimal: function(jsonAnimal, callback) {
 		
 			var promise = $.post({
-        		url: "/addanimal",
+        		url: "/addtenis",
         		data: JSON.stringify(jsonAnimal)
             });
         	promise.then(function(data){
