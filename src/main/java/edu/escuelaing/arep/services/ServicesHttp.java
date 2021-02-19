@@ -7,7 +7,7 @@ import edu.escuelaing.arep.services.DataBase;
 
 /**
  * Clase encargada de ofrecer los servicios http 
- * @author SebastianPaez
+ * @author Nikolai Bermudez V
  *
  */
 public class ServicesHttp {

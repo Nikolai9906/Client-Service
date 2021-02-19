@@ -9,7 +9,7 @@ import java.util.function.Function;
 
 /**
  * 
- * @author SebastianPaez
+ * @author Nikolai Bermudez V
  *
  */
 public class SocketServer extends ServerSocket implements Runnable {

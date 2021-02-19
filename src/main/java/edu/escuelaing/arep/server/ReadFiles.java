@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 
 /**
  * Clase encargada de leer archivos en el resources
- * @author SebastianPaez
+ * @author Nikolai Bermudez V
  *
  */
 public class ReadFiles {

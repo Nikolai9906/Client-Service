@@ -2,7 +2,7 @@ package edu.escuelaing.arep.model;
 
 /**
  * Clase Animal que mostrara informacion de un animal
- * @author SebastianPaez
+ * @author Nikolai Bermudez V
  *
  */
 public class Animal {	private String animal;

@@ -8,7 +8,7 @@ import edu.escuelaing.arep.server.SocketServer;
 
 /**
  * 
- * @author SebastianPaez
+ * @author Nikolai Bermudez V
  *
  */
 public class HttpServer {

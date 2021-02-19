@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * 
- * @author SebastianPaez
+ * @author Nikolai Bermudez V
  *
  */
 public class Request {

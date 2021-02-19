@@ -12,8 +12,7 @@ import com.mongodb.client.MongoDatabase;
 
 /**
  * 
- * @author SebastianPaez
- *
+ * @author Nikolai Bermudez V
  */
 public class DataBase {
 

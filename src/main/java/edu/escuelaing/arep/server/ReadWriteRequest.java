@@ -13,7 +13,7 @@ import javax.imageio.ImageIO;
 
 /**
  * Clase encargada de leer y escribir la solicitud del cliente socket
- * @author SebastianPaez
+ * @author Nikolai Bermudez V
  *
  */
 public class ReadWriteRequest {
