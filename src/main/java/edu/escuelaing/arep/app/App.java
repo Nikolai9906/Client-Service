@@ -21,25 +21,25 @@ public class App
         ServicesHttp servicesHttp = new ServicesHttp();
         port(getPort());
 
-        get("/tenis", (request, response) -> {
+        get("/animals", (request, response) -> {
             return servicesHttp.getAnimals();
         });
 
-        post("/addtenis", (request, response) -> {
+        post("/addanimal", (request, response) -> {
             String body = request.getBody();
-            String res = "Para poder añadir un tenis, envielo desde el formulario en la página principal";
+            String res = "Para poder a�adir un animal, envielo desde el formulario en la p�gina principal :D";
             System.out.println("REQUEST POST ----------- \n" + body);
             if (body != null) {
                 servicesHttp.addAnimal(body);
-                res = "El animal con las características \n" + body + "\nHa sido añadido correctamente";
+                res = "El animal con las caracter�sticas \n" + body + "\nHa sido a�adido correctamente";
             }
             return res;
         });
     }
 
     /**
-     * Retorna el número del puerto por el cual correrá el servicio.
-     * @return El número de puerto
+     * Funcion que retorna el n�mero del puerto por el cual se correr� el servicio.
+     * @return El n�mero de puerto del servicio.
      */
     static int getPort() {
         if (System.getenv("PORT") != null) {

@@ -11,16 +11,16 @@ import edu.escuelaing.arep.services.DataBase;
  *
  */
 public class ServicesHttp {
-	
+
 	private DataBase db;
-	
+
 	/**
 	 * Crea una nueva instancia de la base de datos
 	 */
 	public ServicesHttp() {
 		db = new DataBase();
 	}
-	
+
 	/**
 	 * Da una lista de los animales de la base de datos en formato JSON
 	 * @return La lista de animales
@@ -28,16 +28,16 @@ public class ServicesHttp {
 	public String getAnimals() {
 		return db.getAnimals();
 	}
-	
+
 	/**
-	 * Añade un animal dado su cadena en formato JSON
+	 * A?ade un animal dado su cadena en formato JSON
 	 * @param json Es la cadena
 	 */
 	public void addAnimal(String json) {
 		Animal animal = convertJsonToAnimal(json);
 		db.addAnimal(animal);
 	}
-	
+
 	/**
 	 * Retorna un animal dadas sus caracteristicas en formato json
 	 * @param json Es el json a trata
@@ -56,6 +56,6 @@ public class ServicesHttp {
 		Animal animal = new Animal(valores.get("animal"), valores.get("nombre"), Integer.parseInt(valores.get("edad")));
 		return animal;
 	}
-	
-	
+
+
 }

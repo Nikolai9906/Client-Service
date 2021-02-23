@@ -9,24 +9,24 @@ import java.util.Map;
  *
  */
 public class Request {
-	
+
 	private String tipoPeticion;
 	private String path;
 	private String body;
 	private HashMap<String, String> headers;
-	
+
 	// Diccionario llave valor para la query
 	private Map<String, String> parametros;
-	
-	
+
+
 	/**
 	 * Lee la request y toma los valores importantes, el path, query y tipo de peticion
 	 * @param request Es la solicitud recibida
 	 */
-	public Request(String request) {	
+	public Request(String request) {
 		parametros = new HashMap<>();
-		String[] line = request.split("\n")[0].split(" ");	
-		tipoPeticion = line[0]; 
+		String[] line = request.split("\n")[0].split(" ");
+		tipoPeticion = line[0];
 		String[] pathQuery = line[1].replace("?", " ").split(" ");
 		path =  pathQuery[0];
 		//System.out.println("PATH " + path);
@@ -34,34 +34,34 @@ public class Request {
 		if (pathQuery.length > 1) {
 			llenarParametros(pathQuery[1]);
 		}
-		
+
 	}
-	
+
 	/**
 	 * Constructor vacio para inicializar facilmente
 	 */
 	public Request() {
-		
+
 	}
-	
+
 	/**
 	 * Llena los parametros en caso de que se hayan enviado por peticion
 	 * @param query Es el string con los parametros enviados
 	 */
 	private void llenarParametros(String query) {
 		String[] line = query.split("&&");
-		
+
 		System.out.println();
 		for (String s: line) {
-			String[] dic = s.split("="); 
+			String[] dic = s.split("=");
 			String llave = dic[0];
 			String valor = dic[1];
 			parametros.put(llave, valor);
 		}
-		
+
 	}
 
-	
+
 	/**
 	 * Retorna el tipo de peticion 
 	 * @return Tipo de peticion realizada
@@ -77,7 +77,7 @@ public class Request {
 	public String getPath() {
 		return path;
 	}
-	
+
 	/**
 	 * Cambia el path de la solicitud
 	 * @param path Es el nuevo path
@@ -87,7 +87,7 @@ public class Request {
 	}
 
 
-	
+
 	/**
 	 * Da los parametros de la solicitud en formato llave-valor
 	 * @return Los parametros de la solicitud
@@ -111,7 +111,7 @@ public class Request {
 	public void setBody(String body) {
 		this.body = body;
 	}
-	
+
 	/**
 	 * Retorna los encabezados de la solicitud
 	 * @return headers Que son los encabezados de la solicitud
@@ -119,7 +119,7 @@ public class Request {
 	public Map<String, String> getHeaders() {
 		return headers;
 	}
-	
+
 	/**
 	 * Cambia los encabezados de la solicitud
 	 * @param headers Son los encabezados de la solicitud

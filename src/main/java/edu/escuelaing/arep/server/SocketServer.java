@@ -22,7 +22,7 @@ public class SocketServer extends ServerSocket implements Runnable {
 
 	/**
 	 * Crea un nuevo socketServer
-	 * 
+	 *
 	 * @param port El puerto por donde correra el aplicativo
 	 * @throws IOException En cazo de no estar el puerto disponible
 	 */
@@ -32,7 +32,7 @@ public class SocketServer extends ServerSocket implements Runnable {
 		thread = new Thread(this);
 		thread.start();
 	}
-	
+
 	/**
 	 * Da una instancia del servidor, creandola si no existe
 	 * @param port El puerto por el cual el servidor funcionara
@@ -49,10 +49,10 @@ public class SocketServer extends ServerSocket implements Runnable {
 			}
 		return socketServer;
 	}
-	
+
 
 	/**
-	 * Método que se ejecuta en paralelo para poder utilizar las demás peticiones de
+	 * M?todo que se ejecuta en paralelo para poder utilizar las dem?s peticiones de
 	 * la web
 	 */
 	public void run() {
@@ -63,7 +63,7 @@ public class SocketServer extends ServerSocket implements Runnable {
 				System.out.println("Conexion");
 				readerWriter = new ReadWriteRequest(client);
 				System.out.println("Read Request");
-				String readerString = readerWriter.read();				
+				String readerString = readerWriter.read();
 				if (readerString.equals("")) {
 					readerWriter.badResponse();
 					continue;
@@ -71,10 +71,10 @@ public class SocketServer extends ServerSocket implements Runnable {
 				Request request = new Request(readerString);
 				request.setBody(readerWriter.getBody());
 				String body = request.getBody();
-				if (body != null) request.setHeaders(readerWriter.getHeaders());			
+				if (body != null) request.setHeaders(readerWriter.getHeaders());
 				String path = request.getPath();
 				System.out.println("Request " + path);
-				
+
 				String[] pathData = request.getPath().split("/");
 				if (pathData.length > 1) {
 					viewImage(pathData);
@@ -82,7 +82,7 @@ public class SocketServer extends ServerSocket implements Runnable {
 					viewJavaScript(pathData);
 				}
 				if (path.equals("/index.html") || path.equals("/")) {
-					viewHtml();				 
+					viewHtml();
 				} else if (solicitudes.get(path) != null) {
 					String data = solicitudes.get(path).apply(request, body);
 					System.out.println("------------------------------------ DATA -----------------------------------------");
@@ -100,8 +100,8 @@ public class SocketServer extends ServerSocket implements Runnable {
 
 		}
 	}
-	
-	
+
+
 	/**
 	 * Muestra el archivo html correspondiente
 	 */
@@ -121,7 +121,7 @@ public class SocketServer extends ServerSocket implements Runnable {
 			if (ReadFiles.exist) readerWriter.write("css", file);
 		}
 	}
-	
+
 	/**
 	 * Muestra el JS correspondiente dado su path
 	 * @param pathJs Es el path de la imagen solicitada
@@ -132,7 +132,7 @@ public class SocketServer extends ServerSocket implements Runnable {
 			if (ReadFiles.exist) readerWriter.write("js", file);
 		}
 	}
-	
+
 	/**
 	 * Muestra la imagen correspondiente dado su path
 	 * @param pathImg Es el path de la imagen solicitada
@@ -142,26 +142,26 @@ public class SocketServer extends ServerSocket implements Runnable {
 			readerWriter.writeImage("static/img/" + pathImg[2]);
 		}
 	}
-	
+
 	/**
 	 * Metodo get para realizar solicitudes al servidor
 	 * @param path Es el path al cual se atendera
 	 * @param f Es la funcion que se ejecutara
 	 */
-	public void get(String path, BiFunction<Request, String, String> f) {	
+	public void get(String path, BiFunction<Request, String, String> f) {
 		solicitudes.put(path, f);
 	}
-	
-	/**
+
+	/*
 	 * Metodo get para realizar solicitudes al servidor
 	 * @param path Es el path al cual se atendera
 	 * @param f Es la funcion que se ejecutara
 	 */
-	public static void getStatic(String path, Function<Request, String> f) {	
+	public static void getStatic(String path, Function<Request, String> f) {
 		solicitudesTest = new HashMap<>();
 		solicitudesTest.put(path, f);
 	}
-	
+
 	/**
 	 * Retorna una lista de las solicitudes get estaticas para pruebas
 	 * @return solicitudesTest
@@ -169,19 +169,19 @@ public class SocketServer extends ServerSocket implements Runnable {
 	public static HashMap<String, Function<Request, String>> getSolicitudesTest() {
 		return solicitudesTest;
 	}
-	
-	
+
+
 	/**
 	 * Metodo post para realizar solicitudes al servidor
 	 * @param path Es el path al cual se atendera
 	 * @param f Es la funcion que se ejecutara
 	 */
-	public void post(String path, BiFunction<Request, String, String> f) {	
+	public void post(String path, BiFunction<Request, String, String> f) {
 		solicitudes.put(path, f);
 	}
-	
+
 	/**
-	 * Detiene la ejecución del servidor
+	 * Detiene la ejecuci?n del servidor
 	 */
 	public void stopServer() {
 		thread.stop();

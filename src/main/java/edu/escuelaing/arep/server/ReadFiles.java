@@ -12,14 +12,14 @@ import java.nio.file.Paths;
  *
  */
 public class ReadFiles {
-	
+
 	public static boolean exist = false;
 	/**
 	 * Devuelve el archivo solicitado
 	 * @param path Es donde se encuentra el archivo solicitado
-	 * @return Un String con la interpretación de ese archivo
+	 * @return Un String con la interpretaci?n de ese archivo
 	 */
-	public static String readFiles(String path) {	
+	public static String readFiles(String path) {
 		exist = false;
 		URI uri;
 		try {
@@ -29,7 +29,7 @@ public class ReadFiles {
 			BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
 			String resultHtml = "";
 			String line = null;
-			while ((line = bufferedReader.readLine()) != null) {				
+			while ((line = bufferedReader.readLine()) != null) {
 				resultHtml += line + "\n";
 			}
 			exist = true;
@@ -38,7 +38,7 @@ public class ReadFiles {
 			System.err.println("Error al buscar el archivo en la ruta solicitada.");
 			e.printStackTrace();
 			return null;
-		}		
+		}
 	}
-	
+
 }

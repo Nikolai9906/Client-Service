@@ -13,35 +13,35 @@ var app = (function () {
 		var tabla = "<center> <table class='table table-bordered table-dark' style = 'width:50%; text-align: center;'" +
 						"<thead>" +
 							"<tr>" +
-								"<th scope='col'> Marca </th>" +
+								"<th scope='col'> Mascota </th>" +
 								"<th scope='col'> Nombre </th>" +
-								"<th scope='col'> Numero </th>" +
+								"<th scope='col'> Edad </th>" +
 							"</tr>" +
 						"</thead>" +
                         "<tbody>";
             dataTable.forEach(function(animal) {
                 tabla += "<tr>" +
-                            "<td>" + animal.marca + "</td>" +
+                            "<td>" + animal.animal + "</td>" +
                             "<td>" + animal.nombre + "</td>" +
-                            "<td>" + animal.numero + "</td>" +
+                            "<td>" + animal.edad + "</td>" +
                         "</tr>";
             });
-        
+
         tabla += "</tbody> </table> </center>";
-        return tabla;    
+        return tabla;
     }
 
     var createAnimal = function() {
-        var marca = $("#idMarca").val();
+        var animal = $("#idAnimal").val();
         var nombre = $("#idNombre").val();
-        var numero = $("#idNumero").val();
-        console.log(numero);
-        if (marca == "" || nombre == "" || numero == "") {
+        var edad = $("#idEdad").val();
+        console.log(edad);
+        if (animal == "" || nombre == "" || edad == "") {
             alert("Todos los campos son obligatorios");
             return;
         }
 
-        var jsonAnimal = {"animal": marca, "nombre": nombre, "edad": numero};
+        var jsonAnimal = {"animal": animal, "nombre": nombre, "edad": edad};
         console.log(jsonAnimal);
         console.log(JSON.stringify(jsonAnimal));
         flag = false;
@@ -62,9 +62,9 @@ var app = (function () {
     }
 
     var refresAll = function() {
-        $("#idMarca").val("");
+        $("#idAnimal").val("");
         $("#idNombre").val("");
-        $("#idNumero").val("");
+        $("#idEdad").val("");
     }
 
 

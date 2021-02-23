@@ -1,38 +1,60 @@
 package edu.escuelaing.arep.app;
 
-import junit.framework.Test;
+import edu.escuelaing.arep.server.Request;
+import edu.escuelaing.arep.server.SocketServer;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import org.junit.Test;
+
+import static edu.escuelaing.arep.server.SocketServer.getStatic;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-    extends TestCase
+public class AppTest
 {
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
+        /**
+         * Prueba que se retorne la informacion de los archivos
+         */
+        @org.junit.Test
+        public void shouldDoGetFiles() {
+            Request req = new Request();
+            req.setPath("/files");
+            getStatic("/files", (request) -> {
+                return "returnfiles";
+            });
+            String data = SocketServer.getSolicitudesTest().get(req.getPath()).apply(req);
+            assertEquals(data, "returnfiles");
+        }
+
+        /**
+         * Prueba que se retorne la informacion del html
+         */
+        @org.junit.Test
+        public void shouldDoGetHtmls() {
+            Request req = new Request();
+            req.setPath("/html");
+            getStatic("/html", (request) -> {
+                return "index.html";
+            });
+            String data = SocketServer.getSolicitudesTest().get(req.getPath()).apply(req);
+            assertEquals(data, "index.html");
+        }
+
+        /**
+         * Prueba que se retorne la informacion del css
+         */
+        @Test
+        public void shouldDoGetCss() {
+            Request req = new Request();
+            req.setPath("/css");
+            getStatic("/css", (request) -> {
+                return "style.css";
+            });
+            String data = SocketServer.getSolicitudesTest().get(req.getPath()).apply(req);
+            assertEquals(data, "style.css");
+        }
 }
